@@ -1,13 +1,16 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Test-Run-CmdLine
-version:      0.0102
-version_from: lib/Test/Run/CmdLine.pm
-installdirs:  site
-requires:
+--- #YAML:1.0
+name:                Test-Run-CmdLine
+version:             0.0103
+abstract:            Analyze tests from the command line using Test::Run
+license:             ~
+generated_by:        ExtUtils::MakeMaker version 6.31
+distribution_type:   module
+requires:     
     Test::More:                    0
     Test::Run::Core:               0.0101
     UNIVERSAL::require:            0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.30_01
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - Shlomi Fish <shlomif@iglu.org.il>
