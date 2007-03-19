@@ -1,5 +1,9 @@
 Revision history for Test-Run-CmdLine
 
+0.0104      Mon Mar 19 15:40:20 IST 2007
+    * Fixed running runprove with no arguments.
+    * Converted the tests to Test::Trap.
+
 0.0103      Fri Feb 16 23:00:19 IST 2007
 
     * Fixed a bug in Test::Run::CmdLine::Prove where the Switches parameter

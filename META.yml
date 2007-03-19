@@ -1,13 +1,14 @@
 --- #YAML:1.0
 name:                Test-Run-CmdLine
-version:             0.0103
+version:             0.0104
 abstract:            Analyze tests from the command line using Test::Run
 license:             ~
-generated_by:        ExtUtils::MakeMaker version 6.31
+generated_by:        ExtUtils::MakeMaker version 6.32
 distribution_type:   module
 requires:     
     Test::More:                    0
     Test::Run::Core:               0.0101
+    Test::Trap:                    0
     UNIVERSAL::require:            0
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.2.html
