@@ -3,6 +3,7 @@ package Test::Run::CmdLine;
 use warnings;
 use strict;
 
+use Carp;
 use UNIVERSAL::require;
 
 use Test::Run::Base;
@@ -18,7 +19,7 @@ Test::Run::CmdLine - Analyze tests from the command line using Test::Run
 
 use vars (qw($VERSION));
 
-$VERSION = '0.0104';
+$VERSION = '0.0105';
 
 use vars (qw(@ISA));
 
@@ -42,6 +43,7 @@ __PACKAGE__->mk_accessors(qw(
     backend_class
     backend_params
     backend_plugins
+    backend_env_args
     test_files
 ));
 
@@ -54,6 +56,7 @@ sub _initialize
 
     $self->test_files($args->{'test_files'});
     $self->_process_args($args);
+    $self->backend_env_args([]);
 
     return 0;
 }
@@ -210,21 +213,56 @@ sub get_backend_args
 {
     my $self = shift;
 
-    my $env_var_args = $self->get_backend_env_args();
-
-    my $init_args = $self->get_backend_init_args();
-
-    return [@$env_var_args, @$init_args,];
+    return $self->accum_array(
+        {
+            method => "private_backend_args",
+        }
+    );
 }
 
-=head2 my $args_array_ref = $tester->get_backend_env_args()
+=head2 $self->private_backend_args()
 
-Calculate and return the arguments for the backend class, that originated
-from the environment (%ENV).
+Calculates the get_backend_args()-specific arguments for this class.
 
 =cut
 
-sub _get_backend_env_mapping
+sub private_backend_args
+{
+    my $self = shift;
+
+    $self->get_backend_env_args();
+   
+    my $init_args = $self->get_backend_init_args();
+
+    return [@{$self->backend_env_args()}, @$init_args];
+}
+
+=head2 $tester->get_backend_env_args()
+
+Calculate the arguments for the backend class, that originated
+from the environment (%ENV), and puts them in C<$tester->backend_env_args()>
+
+=cut
+
+sub _get_direct_backend_env_mapping
+{
+    my $self = shift;
+
+    return $self->accum_array(
+        {
+            method => "private_direct_backend_env_mapping",
+        }
+    );
+}
+
+=head2 $self->private_direct_backend_env_mapping()
+
+The return value of this method is collected from every class, and adapted
+to the direct backend environment mapping.
+
+=cut
+
+sub private_direct_backend_env_mapping
 {
     my $self = shift;
     return [
@@ -240,20 +278,105 @@ sub _get_backend_env_mapping
         ];
 }
 
+sub _get_non_direct_backend_env_mapping
+{
+    my $self = shift;
+
+    return $self->accum_array(
+        {
+            method => "private_non_direct_backend_env_mapping",
+        }
+    );
+}
+
+sub _get_backend_env_mapping
+{
+    my $self = shift;
+
+    return 
+    [
+        (map { +{ type => "direct", %$_ } } @{$self->_get_direct_backend_env_mapping()}),
+        @{$self->_get_non_direct_backend_env_mapping()},
+    ];
+}
+
+sub _handle_backend_env_spec
+{
+    my ($self, $spec) = @_;
+
+    my $type = $spec->{type};
+    my $env = $spec->{env};
+
+    if (exists($ENV{$env}))
+    {
+        my $sub = $self->can("_backend_spec_handler_for_$type");
+
+        if (! $sub)
+        {
+            confess "Cannot find type handler for $type!";
+        }
+
+        $sub->(
+            $self,
+            $spec,
+        );
+    }
+}
+
+sub _backend_spec_handler_for_direct
+{
+    my ($self, $spec) = @_;
+
+    my $arg = $spec->{arg};
+    my $env = $spec->{env};
+
+    push @{$self->backend_env_args()},
+         ($arg => $ENV{$env});
+}
+
+sub _backend_spec_handler_for_yamldata
+{
+    my ($self, $spec) = @_;
+
+    my $arg = $spec->{arg};
+    my $env = $spec->{env};
+
+    push @{$self->backend_env_args()},
+         ($arg => YAML::LoadFile($ENV{$env}));
+}
+
+sub _calc_backend_env_var_map
+{
+    my ($self, $mapping_string) = @_;
+
+    my @assignments = split(/\s*;\s*/, $mapping_string);
+    return 
+    +{
+        map { /\A([^=]*)=(.*)\z/ms ? ($1 => $2) : () } 
+            @assignments
+    };
+}
+
+sub _backend_spec_handler_for_varmap
+{
+    my ($self, $spec) = @_;
+
+    my $arg = $spec->{arg};
+    my $env = $spec->{env};
+
+    push @{$self->backend_env_args()},
+         ($arg => $self->_calc_backend_env_var_map($ENV{$env}));
+}
+
 sub get_backend_env_args
 {
     my $self = shift;
-    my @args;
     foreach my $spec (@{$self->_get_backend_env_mapping()})
     {
-        my $env = $spec->{env};
-        my $arg = $spec->{arg};
-        if (exists($ENV{$env}))
-        {
-            push @args, ($arg => $ENV{$env});
-        }
+        $self->_handle_backend_env_spec($spec);
     }
-    return \@args;
+
+    return 0;
 }
 
 =head2 my $args_array_ref = $tester->get_backend_init_args()

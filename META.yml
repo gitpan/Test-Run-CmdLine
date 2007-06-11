@@ -1,17 +1,30 @@
---- #YAML:1.0
-name:                Test-Run-CmdLine
-version:             0.0104
-abstract:            Analyze tests from the command line using Test::Run
-license:             ~
-generated_by:        ExtUtils::MakeMaker version 6.32
-distribution_type:   module
-requires:     
-    Test::More:                    0
-    Test::Run::Core:               0.0101
-    Test::Trap:                    0
-    UNIVERSAL::require:            0
-meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
-    version: 1.2
+---
+name: Test-Run-CmdLine
+version: 0.0105
 author:
-    - Shlomi Fish <shlomif@iglu.org.il>
+  - 'Shlomi Fish, C<< <shlomif@iglu.org.il> >>'
+abstract: Analyze tests from the command line using Test::Run
+license: mit
+resources:
+  license: http://opensource.org/licenses/mit-license.php
+requires:
+  Test::Run::Core: 0.0110
+  UNIVERSAL::require: 0
+build_requires:
+  Test::More: 0
+  Test::Trap: 0
+provides:
+  Test::Run::CmdLine:
+    file: lib/Test/Run/CmdLine.pm
+    version: 0.0105
+  Test::Run::CmdLine::Drivers::Default:
+    file: lib/Test/Run/CmdLine/Drivers/Default.pm
+  Test::Run::CmdLine::Iface:
+    file: lib/Test/Run/CmdLine/Iface.pm
+  Test::Run::CmdLine::Prove:
+    file: lib/Test/Run/CmdLine/Prove.pm
+    version: 0.0100_05
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
