@@ -1,6 +1,6 @@
 ---
 name: Test-Run-CmdLine
-version: 0.0106
+version: 0.0107
 author:
   - 'Shlomi Fish, C<< <shlomif@iglu.org.il> >>'
 abstract: Analyze tests from the command line using Test::Run
@@ -16,7 +16,7 @@ build_requires:
 provides:
   Test::Run::CmdLine:
     file: lib/Test/Run/CmdLine.pm
-    version: 0.0106
+    version: 0.0107
   Test::Run::CmdLine::Drivers::Default:
     file: lib/Test/Run/CmdLine/Drivers/Default.pm
   Test::Run::CmdLine::Iface:
@@ -30,7 +30,7 @@ provides:
     file: lib/Test/Run/CmdLine/Trap/Prove.pm
   Test::Run::CmdLine::Trap::ProveApp:
     file: lib/Test/Run/CmdLine/Trap/ProveApp.pm
-generated_by: Module::Build version 0.2805
+generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
