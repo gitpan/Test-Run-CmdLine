@@ -1,6 +1,6 @@
 ---
 name: Test-Run-CmdLine
-version: 0.0107
+version: 0.0108
 author:
   - 'Shlomi Fish, C<< <shlomif@iglu.org.il> >>'
 abstract: Analyze tests from the command line using Test::Run
@@ -8,7 +8,7 @@ license: mit
 resources:
   license: http://opensource.org/licenses/mit-license.php
 requires:
-  Test::Run::Core: 0.0110
+  Test::Run::Core: 0.0117
   UNIVERSAL::require: 0
 build_requires:
   Test::More: 0
@@ -16,7 +16,7 @@ build_requires:
 provides:
   Test::Run::CmdLine:
     file: lib/Test/Run/CmdLine.pm
-    version: 0.0107
+    version: 0.0108
   Test::Run::CmdLine::Drivers::Default:
     file: lib/Test/Run/CmdLine/Drivers/Default.pm
   Test::Run::CmdLine::Iface:

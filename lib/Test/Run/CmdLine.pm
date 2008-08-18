@@ -19,7 +19,7 @@ Test::Run::CmdLine - Analyze tests from the command line using Test::Run
 
 use vars (qw($VERSION));
 
-$VERSION = '0.0107';
+$VERSION = '0.0108';
 
 use vars (qw(@ISA));
 
@@ -47,7 +47,7 @@ __PACKAGE__->mk_accessors(qw(
     test_files
 ));
 
-sub _initialize
+sub _init
 {
     my ($self, $args) = @_;
     

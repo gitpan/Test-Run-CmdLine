@@ -12,7 +12,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Test::More' => 0,
                            'Test::Trap' => 0,
-                           'Test::Run::Core' => '0.0110',
+                           'Test::Run::Core' => '0.0117',
                            'UNIVERSAL::require' => 0
                          }
         )
