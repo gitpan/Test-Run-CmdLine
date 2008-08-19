@@ -1,6 +1,6 @@
 ---
 name: Test-Run-CmdLine
-version: 0.0108
+version: 0.0109
 author:
   - 'Shlomi Fish, C<< <shlomif@iglu.org.il> >>'
 abstract: Analyze tests from the command line using Test::Run
@@ -16,7 +16,7 @@ build_requires:
 provides:
   Test::Run::CmdLine:
     file: lib/Test/Run/CmdLine.pm
-    version: 0.0108
+    version: 0.0109
   Test::Run::CmdLine::Drivers::Default:
     file: lib/Test/Run/CmdLine/Drivers/Default.pm
   Test::Run::CmdLine::Iface:
