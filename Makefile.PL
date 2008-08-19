@@ -11,6 +11,7 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Test/Run/CmdLine.pm',
           'PREREQ_PM' => {
                            'Test::More' => 0,
+                           'YAML' => 0,
                            'Test::Trap' => 0,
                            'Test::Run::Core' => '0.0117',
                            'UNIVERSAL::require' => 0
