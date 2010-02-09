@@ -1,28 +1,39 @@
 ---
-name: Test-Run-CmdLine
-version: 0.0120
+abstract: 'Analyze tests from the command line using Test::Run'
 author:
   - 'Shlomi Fish <shlomif@cpan.org>'
-abstract: Analyze tests from the command line using Test::Run
-license: mit
-resources:
-  homepage: http://web-cpan.berlios.de/modules/Test-Run/
-  license: http://www.opensource.org/licenses/mit-license.php
-  repository: http://svn.berlios.de/svnroot/repos/web-cpan/Test-Harness-NG/
 build_requires:
   Test::More: 0
   Test::Trap: 0
-requires:
-  Moose: 0
-  Test::Run::Core: 0.0120
-  UNIVERSAL::require: 0
-  YAML::XS: 0
 configure_requires:
-  Module::Build: 0.34
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
+keywords:
+  - cmdline
+  - command-line
+  - front-end
+  - harness
+  - prove
+  - qa
+  - QA
+  - 'quality assurance'
+  - run
+  - runprove
+  - tap
+  - TAP
+  - TAP::Harness
+  - test
+  - testing
+  - Test::Run
+license: mit
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Test-Run-CmdLine
 provides:
   Test::Run::CmdLine:
     file: lib/Test/Run/CmdLine.pm
-    version: 0.0120
+    version: 0.0121
   Test::Run::CmdLine::Drivers::Default:
     file: lib/Test/Run/CmdLine/Drivers/Default.pm
   Test::Run::CmdLine::Iface:
@@ -36,24 +47,15 @@ provides:
     file: lib/Test/Run/CmdLine/Trap/Prove.pm
   Test::Run::CmdLine::Trap::ProveApp:
     file: lib/Test/Run/CmdLine/Trap/ProveApp.pm
-generated_by: Module::Build version 0.34
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-keywords:
-  - cmdline
-  - command-line
-  - front-end
-  - harness
-  - prove
-  - qa
-  - QA
-  - quality assurance
-  - run
-  - runprove
-  - tap
-  - TAP
-  - TAP::Harness
-  - test
-  - testing
-  - Test::Run
+requires:
+  Moose: 0
+  MooseX::Getopt: 0.26
+  MooseX::Getopt::Basic: 0
+  Test::Run::Core: 0.0122
+  UNIVERSAL::require: 0
+  YAML::XS: 0
+resources:
+  homepage: http://web-cpan.berlios.de/modules/Test-Run/
+  license: http://www.opensource.org/licenses/mit-license.php
+  repository: http://svn.berlios.de/svnroot/repos/web-cpan/Test-Harness-NG/
+version: 0.0121
