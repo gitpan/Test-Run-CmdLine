@@ -33,14 +33,14 @@ name: Test-Run-CmdLine
 provides:
   Test::Run::CmdLine:
     file: lib/Test/Run/CmdLine.pm
-    version: 0.0122
+    version: 0.0123
   Test::Run::CmdLine::Drivers::Default:
     file: lib/Test/Run/CmdLine/Drivers/Default.pm
   Test::Run::CmdLine::Iface:
     file: lib/Test/Run/CmdLine/Iface.pm
   Test::Run::CmdLine::Prove:
     file: lib/Test/Run/CmdLine/Prove.pm
-    version: 0.0120
+    version: 0.0123
   Test::Run::CmdLine::Prove::App:
     file: lib/Test/Run/CmdLine/Prove/App.pm
   Test::Run::CmdLine::Trap::Prove:
@@ -58,4 +58,4 @@ resources:
   homepage: http://web-cpan.berlios.de/modules/Test-Run/
   license: http://www.opensource.org/licenses/mit-license.php
   repository: http://svn.berlios.de/svnroot/repos/web-cpan/Test-Harness-NG/
-version: 0.0122
+version: 0.0123
