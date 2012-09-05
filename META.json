@@ -57,7 +57,7 @@
    "provides" : {
       "Test::Run::CmdLine" : {
          "file" : "lib/Test/Run/CmdLine.pm",
-         "version" : "0.0124"
+         "version" : "0.0125"
       },
       "Test::Run::CmdLine::Drivers::Default" : {
          "file" : "lib/Test/Run/CmdLine/Drivers/Default.pm",
@@ -94,5 +94,5 @@
          "url" : "http://svn.berlios.de/svnroot/repos/web-cpan/Test-Harness-NG/"
       }
    },
-   "version" : "0.0124"
+   "version" : "0.0125"
 }
