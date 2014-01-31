@@ -4,7 +4,7 @@
       "Shlomi Fish <shlomif@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830",
    "keywords" : [
       "cmdline",
       "command-line",
@@ -50,38 +50,34 @@
             "MooseX::Getopt::Basic" : "0",
             "Test::Run::Core" : "0.0126",
             "UNIVERSAL::require" : "0",
-            "YAML::XS" : "0"
+            "YAML::XS" : "0",
+            "perl" : "5.008"
          }
       }
    },
    "provides" : {
       "Test::Run::CmdLine" : {
          "file" : "lib/Test/Run/CmdLine.pm",
-         "version" : "0.0125"
+         "version" : "0.0126"
       },
       "Test::Run::CmdLine::Drivers::Default" : {
-         "file" : "lib/Test/Run/CmdLine/Drivers/Default.pm",
-         "version" : 0
+         "file" : "lib/Test/Run/CmdLine/Drivers/Default.pm"
       },
       "Test::Run::CmdLine::Iface" : {
-         "file" : "lib/Test/Run/CmdLine/Iface.pm",
-         "version" : 0
+         "file" : "lib/Test/Run/CmdLine/Iface.pm"
       },
       "Test::Run::CmdLine::Prove" : {
          "file" : "lib/Test/Run/CmdLine/Prove.pm",
-         "version" : "0.0124"
+         "version" : "0.0126"
       },
       "Test::Run::CmdLine::Prove::App" : {
-         "file" : "lib/Test/Run/CmdLine/Prove/App.pm",
-         "version" : 0
+         "file" : "lib/Test/Run/CmdLine/Prove/App.pm"
       },
       "Test::Run::CmdLine::Trap::Prove" : {
-         "file" : "lib/Test/Run/CmdLine/Trap/Prove.pm",
-         "version" : 0
+         "file" : "lib/Test/Run/CmdLine/Trap/Prove.pm"
       },
       "Test::Run::CmdLine::Trap::ProveApp" : {
-         "file" : "lib/Test/Run/CmdLine/Trap/ProveApp.pm",
-         "version" : 0
+         "file" : "lib/Test/Run/CmdLine/Trap/ProveApp.pm"
       }
    },
    "release_status" : "stable",
@@ -94,5 +90,5 @@
          "url" : "http://svn.berlios.de/svnroot/repos/web-cpan/Test-Harness-NG/"
       }
    },
-   "version" : "0.0125"
+   "version" : "0.0126"
 }

@@ -19,9 +19,9 @@ my $build = Test::Run::Builder->new(
     build_requires =>
     {
         "Test::Trap" => 0,
-        'Test::More' => 0,        
+        'Test::More' => 0,
     },
-    requires => 
+    requires =>
     {
         'Moose' => 0,
         'MooseX::Getopt' => 0.26,
@@ -29,6 +29,7 @@ my $build = Test::Run::Builder->new(
         'Test::Run::Core' => "0.0126",
         'UNIVERSAL::require' => 0,
         'YAML::XS' => 0,
+        'perl' => '5.008',
     },
     dist_version_from => 'lib/Test/Run/CmdLine.pm',
     license => "mit",

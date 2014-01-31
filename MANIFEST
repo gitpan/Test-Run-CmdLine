@@ -24,10 +24,12 @@ lib/Test/Run/CmdLine/Prove/App.pm
 lib/Test/Run/CmdLine/Prove.pm
 lib/Test/Run/CmdLine/Trap/ProveApp.pm
 lib/Test/Run/CmdLine/Trap/Prove.pm
+LICENSE
 Makefile.PL
 MANIFEST
 META.yml # Will be created by "make dist"
 README
+scripts/bump-version-number.pl
 scripts/tag-release.pl
 t/00-load.t
 t/01-class-name.t
@@ -38,6 +40,7 @@ t/05-prove-cl-process.t
 t/07-trap-prove-app.t
 t/08-collect-plugins.t
 t/09-yaml-args.t
+t/cpan-changes.t
 t/data/yaml-test.yml
 t/lib/Test/Run/CmdLine/Drivers/CmdLineTest.pm
 t/lib/Test/Run/CmdLine/Drivers/CollectPluginsBarZed.pm
@@ -92,6 +95,7 @@ t/sample-tests/with-lib/lib/MyTestModule5.pm
 t/sample-tests/with-lib/t/mytest.t
 t/sample-tests/with-myhello
 t/sample-tests/with-myhello-and-myfoo
+t/style-trailing-space.t
 t/test-libs/lib1/MyHello.pm
 t/test-libs/lib2/MyFoo.pm
 META.json
